@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "novraai.dev — AI Systems for Marketing Agencies",
+  title: "NovraAI — AI Research Assistants for Professional Firms",
   description:
-    "Custom AI tools for lead generation, client reporting, content automation, and more — built specifically for digital marketing agencies.",
+    "AI-powered research assistants for professional firms drowning in documents. Every answer cited. Every source linked. Your experts stay in control.",
   openGraph: {
-    title: "novraai.dev — AI Systems for Marketing Agencies",
+    title: "NovraAI — AI Research Assistants for Professional Firms",
     description:
-      "Custom AI tools for lead generation, client reporting, content automation, and more — built specifically for digital marketing agencies.",
+      "AI-powered research assistants for professional firms drowning in documents. Every answer cited. Every source linked.",
     type: "website",
   },
 };

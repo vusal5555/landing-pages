@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #0a0a0f;
   --color-foreground: #e4e4e7;
-  --color-accent: #4ade80;
-  --color-accent-dark: #22c55e;
+  --color-accent: #14b8a6;
+  --color-accent-dark: #0d9488;
   --color-surface: #111118;
   --color-surface-light: #1a1a24;
   --color-border: #1e1e2e;
@@ -24,22 +24,13 @@ body {
 }
 
 ::selection {
-  background: rgba(74, 222, 128, 0.3);
+  background: rgba(20, 184, 166, 0.3);
   color: #fff;
 }
 
 .dot-pattern {
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
 }
 
 @keyframes float {
@@ -60,24 +51,6 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
-@keyframes typewriter-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.animate-cursor {
-  animation: typewriter-cursor 0.8s ease-in-out infinite;
-}
-
-@keyframes slide-in-right {
-  from { transform: translateX(40px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.4s ease-out forwards;
-}
-
 @keyframes fade-in-up {
   from { transform: translateY(10px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
@@ -87,20 +60,11 @@ body {
   animation: fade-in-up 0.5s ease-out forwards;
 }
 
-@keyframes progress-fill {
-  from { width: 0%; }
-  to { width: 100%; }
+@keyframes slide-tab {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-progress {
-  animation: progress-fill 2s ease-in-out forwards;
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 2s linear infinite;
+.animate-slide-tab {
+  animation: slide-tab 0.4s ease-out forwards;
 }

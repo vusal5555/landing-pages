@@ -1,11 +1,12 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
+import Problem from "@/components/Problem";
 import HowItWorks from "@/components/HowItWorks";
-import WhyUs from "@/components/WhyUs";
-import Contact from "@/components/Contact";
+import SourceLinkingDemo from "@/components/SourceLinkingDemo";
+import Industries from "@/components/Industries";
+import CaseStudy from "@/components/CaseStudy";
+import TrustStack from "@/components/TrustStack";
+import CTABooking from "@/components/CTABooking";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,12 +15,13 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <SocialProof />
-        <Services />
-        <Projects />
+        <Problem />
         <HowItWorks />
-        <WhyUs />
-        <Contact />
+        <SourceLinkingDemo />
+        <Industries />
+        <CaseStudy />
+        <TrustStack />
+        <CTABooking />
       </main>
       <Footer />
     </>

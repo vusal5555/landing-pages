@@ -21,7 +21,7 @@ const defaultSteps: [StepData, StepData, StepData] = [
   {
     title: "Your team asks questions",
     description:
-      "Natural language queries in a simple interface. \"What's the EDPB stance on cross-border transfers?\" or \"Find all prior approvals for this employer\" or \"Pull the lien history on this property.\"",
+      'Natural language queries in a simple interface. "What\'s the EDPB stance on cross-border transfers?" or "Find all prior approvals for this employer" or "Pull the lien history on this property."',
   },
   {
     title: "Cited answers come back",

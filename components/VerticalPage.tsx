@@ -42,46 +42,13 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Video */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full lg:w-1/2 order-first lg:order-last"
-            >
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border bg-surface shadow-2xl shadow-black/50">
-                <div className="absolute inset-0 flex items-center justify-center bg-surface-light/50">
-                  <div className="flex flex-col items-center gap-4">
-                    <button
-                      className="w-20 h-20 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center hover:bg-accent/20 transition-colors duration-300 group"
-                      aria-label="Play video"
-                    >
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="text-accent ml-1 group-hover:scale-110 transition-transform"
-                      >
-                        <polygon points="5,3 19,12 5,21" />
-                      </svg>
-                    </button>
-                    <span className="text-xs text-muted font-mono tracking-wider uppercase">
-                      Watch the walkthrough
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Text */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <div className="flex flex-col items-center text-center gap-10 md:gap-12">
+            <div className="flex flex-col items-center gap-5 md:gap-6 max-w-4xl w-full">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 {data.badge}
@@ -90,35 +57,52 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6"
+                transition={{ duration: 0.6, delay: 0.05 }}
+                className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.15]"
               >
                 {data.heroHeadline}
               </motion.h1>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <a
-                  href="#booking"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold rounded-full bg-accent text-background hover:bg-accent-dark transition-all duration-200 hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]"
-                >
-                  Book a Strategy Call
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M3 8h10M9 4l4 4-4 4" />
-                  </svg>
-                </a>
-              </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.65, delay: 0.15 }}
+              className="w-full max-w-4xl"
+            >
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border bg-surface shadow-2xl shadow-black/50">
+                <iframe
+                  src="https://player.vimeo.com/video/1189307274"
+                  title="Watch the walkthrough"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+            >
+              <a
+                href="#booking"
+                className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold rounded-full bg-accent text-background hover:bg-accent-dark transition-all duration-200 hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]"
+              >
+                Book a Strategy Call
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>

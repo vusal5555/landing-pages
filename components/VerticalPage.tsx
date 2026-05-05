@@ -12,7 +12,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
       {/* ═══════════════════════════════════════════════════
           SECTION 1: ABOVE THE FOLD
       ═══════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 md:pt-32 overflow-hidden">
         <div className="absolute inset-0 dot-pattern" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none">
           <div className="absolute inset-0 rounded-full bg-accent/20 blur-[120px] animate-pulse-glow" />
@@ -259,7 +259,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
       {/* ═══════════════════════════════════════════════════
           SOCIAL PROOF A: Full Case Study (after pain)
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-t border-border">
+      <section id="case-study" className="relative py-24 md:py-32 border-t border-border">
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative max-w-4xl mx-auto px-6">
           <motion.div
@@ -365,7 +365,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
       {/* ═══════════════════════════════════════════════════
           SECTION 3: VALUE PROPS (8 blocks)
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-t border-border">
+      <section id="how-it-works" className="relative py-24 md:py-32 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -522,7 +522,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
       {/* ═══════════════════════════════════════════════════
           SECTION 5: THE MATH (Pricing Comparison)
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-t border-border">
+      <section id="pricing" className="relative py-24 md:py-32 border-t border-border">
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative max-w-5xl mx-auto px-6">
           <motion.div
@@ -635,7 +635,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
       {/* ═══════════════════════════════════════════════════
           SECTION 6: FAQ (Objection Handling)
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32 border-t border-border">
+      <section id="faq" className="relative py-24 md:py-32 border-t border-border">
         <div className="relative max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

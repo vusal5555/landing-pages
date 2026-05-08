@@ -1,11 +1,69 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import type { VerticalData } from "@/data/verticals";
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement;
+      }) => void;
+    };
+  }
+}
+
+const CALENDLY_URL =
+  "https://calendly.com/novruzovvusal364/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111118&text_color=e4e4e7&primary_color=14b8a6";
+
 export default function VerticalPage({ data }: { data: VerticalData }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const router = useRouter();
+  const calendlyRef = useRef<HTMLDivElement>(null);
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!calendlyLoaded || !calendlyRef.current || !window.Calendly) return;
+    calendlyRef.current.innerHTML = "";
+    window.Calendly.initInlineWidget({
+      url: CALENDLY_URL,
+      parentElement: calendlyRef.current,
+    });
+  }, [calendlyLoaded]);
+
+  useEffect(() => {
+    function parseData(raw: unknown) {
+      if (typeof raw === "string") {
+        try {
+          return JSON.parse(raw);
+        } catch {
+          return null;
+        }
+      }
+      return raw;
+    }
+
+    function onMessage(e: MessageEvent) {
+      const data = parseData(e.data);
+      const eventName =
+        data && typeof data === "object" && "event" in data
+          ? (data as { event?: unknown }).event
+          : undefined;
+
+      if (typeof eventName === "string" && eventName.startsWith("calendly.")) {
+        if (eventName === "calendly.event_scheduled") {
+          router.push("/thank-you");
+        }
+      }
+    }
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [router]);
 
   return (
     <>
@@ -821,17 +879,20 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-2xl border border-border bg-surface/50 overflow-hidden"
           >
-            <iframe
-              src="https://calendly.com/novruzovvusal364/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111118&text_color=e4e4e7&primary_color=14b8a6"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title="Book a Strategy Call"
+            <div
+              ref={calendlyRef}
               className="w-full"
+              style={{ minWidth: 320, height: 700 }}
             />
           </motion.div>
         </div>
       </section>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="afterInteractive"
+        onLoad={() => setCalendlyLoaded(true)}
+        onReady={() => setCalendlyLoaded(true)}
+      />
     </>
   );
 }

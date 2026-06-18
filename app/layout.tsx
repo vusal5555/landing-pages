@@ -14,13 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NovraAI — AI Research Assistants for Professional Firms",
+  metadataBase: new URL("https://novraai.dev"),
+  title: "NovraAI | AI Engineering Studio",
   description:
-    "AI-powered research assistants for professional firms drowning in documents. Every answer cited. Every source linked. Your experts stay in control.",
+    "A one-person AI engineering studio building production systems that help businesses automate manual work, save time, and make more money.",
   openGraph: {
-    title: "NovraAI — AI Research Assistants for Professional Firms",
+    title: "NovraAI | AI Engineering Studio",
     description:
-      "AI-powered research assistants for professional firms drowning in documents. Every answer cited. Every source linked.",
+      "Production AI systems by Vusal Novruzov for businesses that need to remove bottlenecks and move real numbers.",
+    url: "https://novraai.dev",
+    siteName: "NovraAI",
     type: "website",
   },
 };

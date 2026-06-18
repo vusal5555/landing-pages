@@ -16,10 +16,10 @@ export default function Footer() {
 
           <div className="flex items-center gap-6">
             <a
-              href="mailto:hello@novraai.dev"
+              href="mailto:help@novraai.dev"
               className="text-sm text-muted hover:text-white transition-colors"
             >
-              hello@novraai.dev
+              help@novraai.dev
             </a>
             <a
               href="https://www.linkedin.com/in/vusal-novruzovv/"

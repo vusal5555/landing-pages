@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
-import Navigation from "@/components/Navigation";
-import VerticalPage from "@/components/VerticalPage";
-import Footer from "@/components/Footer";
-import { verticals } from "@/data/verticals";
-
-const data = verticals.compliance;
+import NovraHomePage from "@/components/NovraHomePage";
 
 export const metadata: Metadata = {
-  title: "NovraAI — Research Ops for Professional Firms",
+  title: "NovraAI | AI Systems That Save Time and Make Money",
   description:
-    "Custom RAG research systems for regulated professional firms. Cited answers from your documents in 8 seconds. $5,000 build + $800/month. Built by the engineer who shipped HeyData.",
+    "NovraAI is Vusal Novruzov's one-person AI engineering studio. Custom AI systems for businesses that need to automate manual work, save time, and cut support load.",
+  openGraph: {
+    title: "NovraAI | AI Systems That Save Time and Make Money",
+    description:
+      "Custom production AI systems by Vusal Novruzov. Built to remove bottlenecks, save hours, and move real business numbers.",
+    url: "https://novraai.dev",
+    siteName: "NovraAI",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://novraai.dev",
+  },
 };
 
 export default function Home() {
-  return (
-    <>
-      <Navigation />
-      <main>
-        <VerticalPage data={data} />
-      </main>
-      <Footer />
-    </>
-  );
+  return <NovraHomePage />;
 }

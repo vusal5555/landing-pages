@@ -265,7 +265,7 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
             {/* Alternatives that fail */}
             <div className="space-y-3">
               <p className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-                You've tried the alternatives. They don't work:
+                You&apos;ve tried the alternatives. They don&apos;t work:
               </p>
               {data.painAgitateAlternatives.map((alt, i) => (
                 <div
@@ -487,10 +487,10 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why It <span className="text-accent">Can't</span> Hallucinate
+              Why It <span className="text-accent">Can&apos;t</span> Hallucinate
             </h2>
             <p className="text-muted max-w-xl mx-auto">
-              This isn't a chatbot with a regulatory prompt bolted on. The architecture is fundamentally different.
+              This isn&apos;t a chatbot with a regulatory prompt bolted on. The architecture is fundamentally different.
             </p>
           </motion.div>
 
@@ -518,7 +518,9 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
 
             <div className="mt-6 pt-6 border-t border-border">
               <p className="text-sm text-muted leading-relaxed">
-                If the system can't find a relevant source, it says so. It doesn't guess. It doesn't fill in. This is retrieval, not generation.
+                If the system can&apos;t find a relevant source, it says so. It
+                doesn&apos;t guess. It doesn&apos;t fill in. This is retrieval,
+                not generation.
               </p>
             </div>
           </motion.div>
@@ -808,16 +810,20 @@ export default function VerticalPage({ data }: { data: VerticalData }) {
             className="rounded-2xl border border-border bg-surface/50 p-6 md:p-8"
           >
             <h3 className="text-lg font-bold text-white mb-4">
-              You'd be client #2. Here's why that's an advantage.
+              You&apos;d be client #2. Here&apos;s why that&apos;s an advantage.
             </h3>
             <div className="space-y-3 text-sm text-muted leading-relaxed">
               <p>
                 <span className="text-white font-semibold">Founding pricing.</span>{" "}
-                $5,000 build + $800/month. After 5 clients, it's $10,000 + $1,500. You're getting the system at half rate because you're taking a chance on a vendor with one reference instead of five.
+                $5,000 build + $800/month. After 5 clients, it&apos;s $10,000 +
+                $1,500. You&apos;re getting the system at half rate because
+                you&apos;re taking a chance on a vendor with one reference
+                instead of five.
               </p>
               <p>
                 <span className="text-white font-semibold">Full attention.</span>{" "}
-                I take 2 clients per month. You're not #47 in a queue. Every question gets answered the same day.
+                I take 2 clients per month. You&apos;re not #47 in a queue. Every
+                question gets answered the same day.
               </p>
               <p>
                 <span className="text-white font-semibold">Aligned incentives.</span>{" "}

@@ -23,6 +23,10 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+a {
+  text-underline-offset: 3px;
+}
+
 ::selection {
   background: rgba(20, 184, 166, 0.3);
   color: #fff;
@@ -67,4 +71,64 @@ body {
 
 .animate-slide-tab {
   animation: slide-tab 0.4s ease-out forwards;
+}
+
+.legal-copy h2 {
+  margin-top: 3rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.legal-copy h3 {
+  margin-top: 2rem;
+  color: #f4f4f5;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.legal-copy p,
+.legal-copy li {
+  color: #a1a1aa;
+  line-height: 1.8;
+}
+
+.legal-copy p {
+  margin-top: 1rem;
+}
+
+.legal-copy ul {
+  margin-top: 1rem;
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.legal-copy li + li {
+  margin-top: 0.5rem;
+}
+
+.legal-copy a {
+  color: #6ee7b7;
+  text-decoration: underline;
+}
+
+.legal-copy strong {
+  color: #e4e4e7;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

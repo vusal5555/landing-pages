@@ -15,16 +15,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://novraai.dev"),
-  title: "NovraAI | AI Engineering Studio",
+  title: {
+    default: "Novra AI | Hotel Enquiry & Revenue Recovery",
+    template: "%s | Novra AI",
+  },
   description:
-    "A one-person AI engineering studio building production systems that help businesses automate manual work, save time, and make more money.",
+    "AI-powered hotel enquiry processing, follow-up workflows, and revenue recovery support for hospitality teams.",
   openGraph: {
-    title: "NovraAI | AI Engineering Studio",
+    title: "Novra AI | Hotel Enquiry & Revenue Recovery",
     description:
-      "Production AI systems by Vusal Novruzov for businesses that need to remove bottlenecks and move real numbers.",
+      "Turn more existing hotel enquiries into booked revenue with configured AI-powered workflows.",
     url: "https://novraai.dev",
-    siteName: "NovraAI",
+    siteName: "Novra AI",
     type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -36,6 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${instrumentSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen bg-background text-foreground">

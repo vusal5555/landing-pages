@@ -4,9 +4,13 @@ import Footer from "@/components/Footer";
 import ThankYouContent from "@/components/ThankYouContent";
 
 export const metadata: Metadata = {
-  title: "You're Almost There — NovraAI",
+  title: "Demo Booking Confirmed",
   description:
-    "Complete these steps before your NovraAI discovery call so we can make the most of our time together.",
+    "Prepare for your Novra AI hotel enquiry workflow demonstration.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ThankYouPage() {

@@ -1,48 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
-
-const navLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Case Study", href: "/#case-study" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "FAQ", href: "/#faq" },
-];
+import { primaryNavigation } from "@/lib/site";
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-white/[0.06]"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight text-white">
-          Novra<span className="text-accent">AI</span>
+    <header className="fixed inset-x-0 top-0 z-50 bg-[#03130f]">
+      <nav
+        className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 md:px-6"
+        aria-label="Main navigation"
+      >
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-tight text-white"
+          onClick={() => setMobileOpen(false)}
+        >
+          Novra <span className="text-emerald-300">AI</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <div className="hidden items-center gap-7 md:flex">
+          {primaryNavigation.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-white transition-colors duration-200"
+              className="text-sm text-zinc-400 transition-colors duration-200 hover:text-white"
             >
               {link.label}
             </Link>
@@ -50,16 +34,18 @@ export default function Navigation() {
         </div>
 
         <Link
-          href="/#booking"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-medium rounded-full bg-accent text-background hover:bg-accent-dark transition-colors duration-200"
+          href="/contact#book-a-demo"
+          className="hidden rounded-full bg-emerald-300 px-5 py-2.5 text-sm font-semibold text-[#03130f] transition hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-[#03130f] md:inline-flex"
         >
-          Book a Strategy Call
+          Book a Demo
         </Link>
 
         <button
+          type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
+          className="rounded-lg p-2 text-white focus:outline-none focus:ring-2 focus:ring-emerald-300 md:hidden"
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileOpen}
         >
           <svg
             width="24"
@@ -76,35 +62,31 @@ export default function Navigation() {
             )}
           </svg>
         </button>
-      </div>
+      </nav>
 
       {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
-        >
-          <div className="px-6 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
+        <div className="border-b border-white/10 bg-[#03130f]/98 px-5 pb-5 backdrop-blur-xl md:hidden">
+          <div className="flex flex-col gap-1">
+            {primaryNavigation.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted hover:text-white transition-colors"
+                className="rounded-lg px-3 py-3 text-sm text-zinc-300 transition hover:bg-white/[0.05] hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="/#booking"
+              href="/contact#book-a-demo"
               onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-full bg-accent text-background"
+              className="mt-3 inline-flex items-center justify-center rounded-full bg-emerald-300 px-5 py-3 text-sm font-semibold text-[#03130f]"
             >
-              Book a Strategy Call
+              Book a Demo
             </Link>
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.nav>
+    </header>
   );
 }

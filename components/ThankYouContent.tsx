@@ -25,9 +25,9 @@ const steps: Step[] = [
     description:
       "To get the most out of our 30 minutes, please come ready to share:",
     listItems: [
-      "The specific document type or workflow you want to automate",
-      "How many people on your team would use this system",
-      "What tools and software you currently use day-to-day",
+      "Where hotel enquiries arrive today",
+      "Which reservation, sales, or events staff handle them",
+      "What follow-up and routing process you currently use",
     ],
     checkboxLabel: "I'm ready for the call",
   },
@@ -59,6 +59,8 @@ export default function ThankYouContent() {
   const confettiFired = useRef(false);
 
   useEffect(() => {
+    // Restore client-only progress after hydration; localStorage is unavailable during SSR.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setChecked(loadCheckedState());
     setMounted(true);
   }, []);
